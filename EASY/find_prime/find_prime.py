@@ -2,7 +2,7 @@ def random_list(N):
     '''
     Function returns a list of random integers of length N
     '''
-    return random_list
+    return
 
 
 def is_prime(p):
