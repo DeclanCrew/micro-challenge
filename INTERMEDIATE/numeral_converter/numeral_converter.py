@@ -24,9 +24,9 @@ def convert_to_roman (number, output=""):
     '''
     if number == 0:
         return output
-    for i in lookuptable:
-        if i[1] <= number:
-            return convert_to_roman((number-i[1]), output+i[0])
+    for symbol, value in lookuptable:
+        if value <= number:
+            return convert_to_roman((number-value), output+symbol)
 
 def convert_to_english (romanstring, outnum=0):
     '''Takes a string of roman numerals, and returns an integer with
@@ -34,9 +34,9 @@ def convert_to_english (romanstring, outnum=0):
     '''
     if len(romanstring) == 0:
         return outnum
-    for i in lookuptable:
-        if romanstring[:len(i[0])] == i[0]:
-            return convert_to_english(romanstring[len(i[0]):], outnum+i[1])
+    for symbol, value in lookuptable:
+        if romanstring[:len(symbol)] == symbol:
+            return convert_to_english(romanstring[len(symbol):], outnum+value)
 
 print(convert_to_roman(3459))
 print(convert_to_english("MMMCDLIX"))
